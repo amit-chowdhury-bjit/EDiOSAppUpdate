@@ -9,9 +9,9 @@ Pod::Spec.new do |spec|
   spec.license      = "MIT"
   spec.author       = { "Amit Chowdhury" => "amit.chowdhury@bjitgroup.com" }
   spec.platform     = :ios, "13.0"
-  spec.source       = { :git => "https://github.com/amit-chowdhury-bjit/EDiOSSwiftExtension.git", :tag => spec.version.to_s}
+  spec.source       = { :git => "https://github.com/amit-chowdhury-bjit/EDiOSAppUpdate.git", :tag => spec.version.to_s}
 
-  spec.source_files  = "**/*.swift"
+  spec.source_files  = "EDiOSAppUpdate/**/*.{swift}"
 
   spec.swift_version = ['5.0']
 

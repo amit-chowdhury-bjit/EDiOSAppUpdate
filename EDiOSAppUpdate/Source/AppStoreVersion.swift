@@ -52,7 +52,7 @@ struct ItunesAPI: Decodable {
 
     static func requestVersion(_ completion: @escaping (AppStoreVersion?, Error?) -> Void) {
         let session = URLSession(configuration: .default)
-        let endpoint = URL(string: "http://itunes.apple.com/lookup?bundleId=\(AppInfo.bundleId)")!
+        let endpoint = URL(string: "https://itunes.apple.com/lookup?bundleId=\(AppInfo.bundleId)")!
 
         var urlRequest = URLRequest(url: endpoint) //config
         urlRequest.httpMethod = "GET"
