@@ -260,10 +260,10 @@ public extension DateFormatter {
 public extension UserDefaults {
    
    private enum Keys {
-       static let lastCheckDate = "com.bjit.AppVersion.lastCheckDate"
-       static let skipVersion = "com.bjit.AppVersion.skipVersion"
-       static let versionHistory = "com.bjit.AppVersion.versionHistory"
-       static let never = "com.bjit.AppVersion.never"
+       static let lastCheckDate = "EDiOSAppVersion.lastCheckDate"
+       static let skipVersion = "EDiOSAppVersion.skipVersion"
+       static let versionHistory = "EDiOSAppVersion.versionHistory"
+       static let never = "EDiOSAppVersion.never"
    }
 
    static var appVersionLastCheckDate: Date? {
