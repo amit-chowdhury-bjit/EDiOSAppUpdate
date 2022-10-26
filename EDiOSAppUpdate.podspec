@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "EDiOSAppUpdate"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = 'iOS app update notification to user'
   spec.homepage     = "https://github.com/amit-chowdhury-bjit/EDiOSAppUpdate"
   spec.license      = "MIT"
