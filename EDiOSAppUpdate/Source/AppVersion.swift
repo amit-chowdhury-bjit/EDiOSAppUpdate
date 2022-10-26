@@ -20,9 +20,6 @@ public final class AppVersion {
     /// AppVersion Singleton
     public static let shared = AppVersion()
     
-    /// Delegate chaining AppVersionDelegate methods
-    public weak var delegate: AppVersionDelegate?
-
     /// Defines the frequency of App Store update requests in **days**, default: 0 - means with each app launch
     public var updateFrequency: UInt = 0
     /// Checks you want to make before presenting update-suggesting UI. If returns **true** - UI will be presented, if **false** UI will be supressed
@@ -109,7 +106,6 @@ public final class AppVersion {
             
             if let version = version {
                 self.currentAppStoreInfo = version
-                self.delegate?.appVersionCheckedForNewVersion()
                 UserDefaults.appVersionLastCheckDate = Date()
             }
         }
@@ -126,34 +122,21 @@ public final class AppVersion {
         var launchHistory = UserDefaults.appVersionHistory ?? [:]
         launchHistory[currentVersion] = launchCount + 1
         UserDefaults.appVersionHistory = launchHistory
-
-        if launchCount == 0 {
-            delegate?.appVersionFirstLaunchForThisVersion()
-        }
     }
 
     internal func processUpdate(update: Version.UpdateType) {
         guard update != .none else { return }
-        guard UserDefaults.appVersionSkipVersion != currentAppStoreVersion else {
-            delegate?.appVersionSuppressedBySkipFlag()
-            return
-        }
-
-        delegate?.appVersionNewVersionDetected()
-
+       
         switch update {
         case .major:
-            delegate?.appVersionNewMajorVersionDetected()
             if alertsEnabled {
                 showAlert(alertTypeMajor ?? alertType)
             }
         case .minor:
-            delegate?.appVersionNewMinorVersionDetected()
             if alertsEnabled, !minorAlertsDisabled {
                 showAlert(alertTypeMinor ?? alertType)
             }
         case .patch:
-            delegate?.appVersionNewPatchVersionDetected()
             if alertsEnabled, !patchAlertsDisabled {
                 showAlert(alertTypePatch ?? alertType)
             }
@@ -163,7 +146,6 @@ public final class AppVersion {
     }
 
     private func launchAppStore() {
-        delegate?.appVersionUserPressedUpdate()
         if let appId = currentAppStoreInfo?.appId {
             UIApplication.shared.open(NSURL(string: "itms-apps://itunes.apple.com/app/\(appId)")! as URL, options: [: ], completionHandler: nil)
         }
@@ -171,12 +153,10 @@ public final class AppVersion {
 
     internal func skipCurentAppStoreVersion() {
         UserDefaults.appVersionSkipVersion = currentAppStoreVersion //Bad?
-        delegate?.appVersionUserPressedSkip()
     }
 
     internal func enableNeverShowAlert() {
         UserDefaults.appVersionNever = true
-        delegate?.appVersionUserPressedNeverPresent()
     }
 
     /// Resets all persistance information stored by AppVersion: version launch history and user preferences(skip, never)
@@ -197,10 +177,9 @@ extension AppVersion {
 
             switch type {
             case .skippable:
-                alert.addCancleAction(handler: self.delegate?.appVersionUserPressedCancel)
                 alert.addSkipAction(handler: self.skipCurentAppStoreVersion)
             case .unskippable:
-                alert.addCancleAction(handler: self.delegate?.appVersionUserPressedCancel)
+                break
             case .blocking:
                 break
             }
@@ -321,7 +300,7 @@ typealias AlertHandler = () -> Void
 
 extension UIAlertController {
     func present() {
-        
+        //UIWindowScene.windows
         UIApplication.shared.windows.filter {$0.isKeyWindow}.first!.rootViewController?.present(self, animated: true, completion: nil)
     }
 

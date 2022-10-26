@@ -12,7 +12,6 @@
 		89D7179328C7128E0026697F /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D7178828C7128E0026697F /* AppVersion.swift */; };
 		89D7179528C7128E0026697F /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D7178A28C7128E0026697F /* Version.swift */; };
 		89D7179628C7128E0026697F /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D7178B28C7128E0026697F /* AppInfo.swift */; };
-		89D7179B28C7128E0026697F /* AppVersionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D7179128C7128E0026697F /* AppVersionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +21,6 @@
 		89D7178828C7128E0026697F /* AppVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		89D7178A28C7128E0026697F /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		89D7178B28C7128E0026697F /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
-		89D7179128C7128E0026697F /* AppVersionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,6 @@
 				89D7178828C7128E0026697F /* AppVersion.swift */,
 				89D7178A28C7128E0026697F /* Version.swift */,
 				89D7178B28C7128E0026697F /* AppInfo.swift */,
-				89D7179128C7128E0026697F /* AppVersionDelegate.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -156,7 +153,6 @@
 				89D7179628C7128E0026697F /* AppInfo.swift in Sources */,
 				89D7179528C7128E0026697F /* Version.swift in Sources */,
 				89D7179228C7128E0026697F /* AppStoreVersion.swift in Sources */,
-				89D7179B28C7128E0026697F /* AppVersionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
